@@ -144,7 +144,7 @@
       <parent link="${prefix}outer_yaw_link"/>
       <child link="${prefix}back_parallel_link"/>  <!-- xyz= 0 0 -.19037-->
       <origin rpy="${-PI/2} ${-PI/2} 0" xyz="0 0 -0.19037"/>
-      <axis xyz="0 0 1"/>
+      <axis xyz="0 0 1"/> <!-- xyz = "0 0 1" -->
       <!--rotates about  x axis-->
       <!--limit effort and velocity picked arbitrarily check-->
       <limit effort="100.0" lower="${-PI/4}" upper="${PI/4}" velocity="10"/>
