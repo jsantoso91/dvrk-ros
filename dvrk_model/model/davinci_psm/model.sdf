@@ -1,0 +1,691 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name="davinci_psm">
+    <static>false</static>
+    <pose>0 0 0 0 0 0</pose>
+	<link name="world">
+	</link>
+
+<!-- DEFINE ALL THE LINKS -->
+<!-- ALL THE POSES ARE WITH RESPECT TO THE WORLD FRAME -->
+
+	<link name="box">                <!-- A very heavy link to fix the davinci in place -->
+		<pose>0 -0.5 0 0 0 0</pose>
+		<inertial>
+			<mass> 100 </mass>
+			<inertia>
+			   	<ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                		<iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          		</inertia>
+		</inertial>
+	<visual name="visual">
+		<geometry>
+			<box>
+				<size> 1 1 1 </size>
+			</box>
+		</geometry>
+	</visual>
+
+        <collision name="collision">
+                <geometry>
+                        <box>
+                                <size> 1 1 1 </size>
+                        </box>
+                </geometry>
+        </collision>
+
+	</link>
+
+      <link name="psm_base_link">
+	<pose>0 0.3652 0 1.578 0 3.1416</pose>
+	<inertial> <!-- 0.039 0.0388 -0.07879 -->
+	  <mass> 1.0 </mass>
+	  <inertia>
+	  	<ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+		<iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+	  </inertia>
+	</inertial>
+
+	<collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/psm_base.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+		<uri>model://davinci_psm/meshes/psm_base.dae</uri>
+	    </mesh>
+	  </geometry>
+        </visual>
+      </link>
+
+      <link name="outer_yaw_link">
+        <pose>-0.0390 0.2465 0.0913 1.5708 0 3.1416</pose>
+        <inertial>
+          <mass> 0.660047 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/outer_yaw.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/outer_yaw.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="outer_pitch_back_link">
+        <!--pose>-0.0685 0.2545 0.080 1.5708 0 -1.5708 </pose-->
+        <pose>-0.0685 0.2545 0.0788 1.5708 0 -1.5708 </pose>
+	<inertial> 
+          <mass> 0.038460 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/outer_pitch_back.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/outer_pitch_back.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="outer_pitch_front_link">
+        <!--pose>-0.0815 0.344 0.080 -1.5708 3.1416 -1.5708</pose-->
+        <pose>-0.0815 0.3445 0.0788 -1.5708 3.1416 -1.5708</pose>
+	<inertial> 
+          <mass> 0.038460 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/outer_pitch_front.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/outer_pitch_front.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="outer_pitch_bottom_link">
+        <!--pose>-0.0685 0.2545 0.221 -1.5708 -3.1416 0 </pose-->
+        <pose>-0.0685 0.2458 0.2347 -1.5708 -3.1416 0 </pose>
+        <inertial>
+          <mass> 0.15 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/outer_pitch_bottom.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/outer_pitch_bottom.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="outer_pitch_top_link">
+        <pose>-0.0595 0.2555 0.2704 -1.5708 -3.1416 0 </pose>
+        <inertial> <!-- -0.0685 0.2545 0.2580 -1.5708 -3.1416 0 -->
+          <!--pose>0 0.25 0 0 0 0</pose-->
+	  <mass> 0.15 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/outer_pitch_top.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/outer_pitch_top.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+
+      <!--link name="outer_insertion_link">
+        <pose>-0.0546 0.390 0.245 -1.5708 -3.1416 0 </pose>
+        <inertial> <!-- = -0.0546 0.8627 0.6554--> 
+          <!--pose>0 0.25 0 0 0 0</pose>
+          <mass> 1.209778 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/outer_insertion.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/outer_insertion.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link-->
+
+      <link name="outer_insertion_link">
+        <pose>-0.055 0.760 0.615 0 3.1416 0 </pose> <!--still need to find accurate value from Solidworks for this-->
+        <inertial> 
+          <!--pose>0 0.25 0 0 0 0</pose-->
+          <mass> 1.209778 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/outer_insertion.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/outer_insertion.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="tool_main_link">
+        <pose>-0.055 0.825 0.615 0 3.1416 0 </pose> <!--still need to find accurate value from Solidworks for this-->
+        <inertial> 
+          <!--pose>0 0.25 0 0 0 0</pose-->
+          <mass> 0.244362 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/tool_main.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/tool_main.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="tool_wrist_link">
+        <pose>-0.055 0.825 0.248 0 3.1416 0 </pose> <!--still need to find accurate value for z from Solidworks for this-->
+        <inertial> 
+          <!--pose>0 0.25 0 0 0 0</pose-->
+          <mass> 0.000332 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/tool_wrist_link.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/tool_wrist_link.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+     <link name="tool_wrist_shaft_link">
+        <pose>-0.055 0.821 0.235 3.1416 -1.5708 1.5708 </pose> <!--still need to find accurate value for y z from Solidworks for this-->
+        <inertial> 
+          <!--pose>0 0.25 0 0 0 0</pose-->
+          <mass> 0.000337 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/tool_wrist_sca_link.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/tool_wrist_sca_link.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+     <link name="tool_wrist_sca_shaft_link">
+        <pose>-0.055 0.821 0.235 3.1416 -1.5708 1.5708 </pose> <!--still need to find accurate value for y z from Solidworks for this-->
+        <inertial> 
+          <!--pose>0 0.25 0 0 0 0</pose-->
+          <mass> 0.000337 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/tool_wrist_sca_shaft_link.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/tool_wrist_sca_shaft_link.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+
+     <link name="tool_wrist_sca_ee_link_1">
+        <pose>-0.055 0.8225 0.2308 3.1416 -1.5708 1.5708 </pose> <!--still need to find accurate value for y z from Solidworks for this-->
+        <inertial> 
+          <!--pose>0 0.25 0 0 0 0</pose-->
+          <mass> 0.000337 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/tool_wrist_sca_link_2.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/tool_wrist_sca_link_2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+     <link name="tool_wrist_sca_ee_link_2">
+        <pose>-0.055 0.8245 0.2308 -3.1416 -1.5708 1.5708 </pose> <!--still need to find accurate value for y z from Solidworks for this-->
+        <inertial> 
+          <!--pose>0 0.25 0 0 0 0</pose-->
+          <mass> 0.000337 </mass>
+          <inertia>
+                <ixx> 1.0 </ixx> <ixy> 0.0 </ixy> <ixz> 0.0 </ixz>
+                <iyy> 1.0 </iyy> <iyz> 0.0 </iyz> <izz> 1.0 </izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://davinci_psm/meshes/tool_wrist_sca_link_2.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh>
+                <uri>model://davinci_psm/meshes/tool_wrist_sca_link_2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+
+
+<!-- DEFINE ALL THE JOINTS -->
+<!-- OUTER_JOINT_1 and OUTER_JOINT_2 mimic each other -->
+<!-- OUTER_JOINT_3 - 7 mimic each other and they are the opposite of the OUTER_JOINT_1 and 2 -->
+
+	<joint name="rc_fixed_joint" type="revolute">
+	  <pose>0 0 0 0 0 0</pose>
+	  <parent>world</parent>
+	  <child>box</child>
+	  <axis>
+		<limit>
+			<lower>0</lower>
+			<upper>0</upper>
+		</limit>	
+		<xyz>0 0 1</xyz>
+	  </axis>
+	</joint>
+
+	 <joint name="fixed_joint" type="revolute">
+          <pose>0 0.369 0 0 0 0</pose>
+          <parent>box</parent>
+          <child>psm_base_link</child>
+          <axis>
+                <limit>
+                        <lower>0</lower>
+                        <upper>0</upper>
+                </limit>        
+                <xyz>0 0 1</xyz>
+          </axis>
+        </joint>
+
+	<joint name="outer_yaw_joint" type="revolute">
+          <pose>0.0390 0.0788 0.0339 0 0 0</pose>
+          <parent>outer_yaw_link</parent>
+          <child>psm_base_link</child>
+          <axis>
+                <limit>
+                        <lower>0</lower>
+                        <upper>0</upper>
+			<effort>1000</effort>
+			<velocity>0.4</velocity>
+                </limit>
+                <xyz>0 1 0</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_pitch_joint_1" type="revolute">
+          <pose>0 0 0 0 0 0</pose>
+          <parent>outer_yaw_link</parent>
+          <child>outer_pitch_back_link</child>
+          <axis>
+                <limit>
+                        <lower>-1.0</lower>
+						<upper>1.0</upper>
+                        <effort>1000</effort>
+                        <velocity>0.4</velocity>
+                </limit>
+                <xyz>1 0 0</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_pitch_joint_2" type="revolute">
+          <pose>0 0 0 0 0 0</pose> 
+          <parent>outer_yaw_link</parent>
+          <child>outer_pitch_front_link</child>
+          <axis>
+                <limit>
+                        <lower>-1.0</lower>
+                        <upper>1.0</upper>
+                        <effort>1000</effort>
+                        <velocity>0.4</velocity>
+                </limit>
+                <xyz>1 0 0</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_pitch_joint_3" type="revolute">
+          <pose>0 0 0 0 0 0</pose> 
+          <parent>outer_pitch_back_link</parent>
+          <child>outer_pitch_bottom_link</child>
+          <axis>
+                <limit>
+                        <lower>-1.0</lower>
+                        <upper>1.0</upper>
+                        <effort>1000</effort>
+                        <velocity>0.4</velocity>
+                </limit>
+                <xyz>1 0 0</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_pitch_joint_4" type="revolute">
+          <pose>0 0 0.090 0 0 0</pose>
+          <parent>outer_pitch_front_link</parent>
+          <child>outer_pitch_bottom_link</child>
+          <axis>
+                <limit>
+                        <lower>-1.0</lower>
+                        <upper>1.0</upper>
+                        <effort>1000</effort>
+                        <velocity>0.4</velocity>
+                </limit>
+                <xyz>1 0 0</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_pitch_joint_5" type="revolute">
+          <pose>0 0 0 0 0 0</pose>
+          <parent>outer_pitch_back_link</parent>
+          <child>outer_pitch_top_link</child>
+          <axis>
+                <limit>
+                        <lower>-1.0</lower>
+                        <upper>1.0</upper>
+                        <effort>1000</effort>
+                        <velocity>0.4</velocity>
+                </limit>
+                <xyz>1 0 0</xyz>
+          </axis>
+        </joint>
+
+        <!--joint name="outer_pitch_joint_6" type="revolute">
+          <pose>0 0.0253 0.3942 0 0 0</pose>
+          <parent>outer_pitch_top_link</parent>
+          <child>outer_insertion_link</child>
+          <axis>
+                <limit>
+                        <lower>-1.25</lower>
+                        <upper>0</upper>
+                        <effort>1000</effort>
+                        <velocity>0.4</velocity>
+                </limit>
+                <xyz>1 0 0</xyz>
+          </axis>
+        </joint-->
+
+        <joint name="outer_pitch_joint_6" type="revolute">
+          <pose>0 0.00225 0.535 0 0 0</pose> <!--need to find values from SW wrt to child link-->
+          <parent>outer_insertion_link</parent>
+          <child>outer_pitch_top_link</child>
+          <axis>
+                <limit>
+                        <lower>-0.20</lower>
+                        <upper>0.20</upper>
+                        <effort>1000</effort>
+                        <velocity>0.4</velocity>
+                </limit>
+                <xyz>1 0 0</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_pitch_joint_7" type="revolute">
+          <!--pose>0 0.0253 0.4310 0 0 0</pose-->
+          <pose>0 0 0.530 0 0 0</pose> <!--need to find values from SW wrt to child link-->
+          <parent>outer_insertion_link</parent>
+          <child>outer_pitch_bottom_link</child>
+          <axis>
+                <limit>
+                        <lower>-0.20</lower>
+                        <upper>0.20</upper>
+                        <effort>1000</effort>
+                        <velocity>0.4</velocity>
+                </limit>
+                <xyz>1 0 0</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_insertion_joint" type="prismatic">
+          <pose>0 0 0 0 0 0</pose>
+          <parent>outer_insertion_link</parent>
+          <child>tool_main_link</child>
+          <axis>
+                <limit>
+                        <lower>-0.45</lower>
+                        <upper>-0.15</upper>
+                        <effort>1000</effort>
+                        <velocity>0.1</velocity>
+                </limit>
+                <xyz>0 0 1</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_roll_joint" type="revolute">
+          <pose>0 0 0 0 0 0</pose>
+          <parent>tool_main_link</parent>
+          <child>tool_wrist_link</child>
+          <axis>
+                <limit>
+                        <lower>-2.2689</lower>
+                        <upper>2.2689</upper>
+                        <effort>1000</effort>
+                        <velocity>0.3</velocity>
+                </limit>
+                <xyz>0 0 1</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_wrist_pitch_joint" type="revolute">
+          <pose>0 0 0 0 0 0</pose>
+          <parent>tool_wrist_link</parent>
+          <child>tool_wrist_shaft_link</child>
+          <axis>
+                <limit>
+                        <lower>-1.5708</lower>
+                        <upper>1.5708</upper>
+                        <effort>1000</effort>
+                        <velocity>0.3</velocity>
+                </limit>
+                <xyz>1 0 0</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_wrist_yaw_joint" type="revolute">
+          <pose>0 0 0 0 0 0</pose> <!--need to find values from SW wrt to child link-->
+          <parent>tool_wrist_shaft_link</parent>
+          <child>tool_wrist_sca_shaft_link</child>
+          <axis>
+                <limit>
+                        <lower>-1.3963</lower>
+                        <upper>1.3963</upper>
+                        <effort>1000</effort>
+                        <velocity>0.3</velocity>
+                </limit>
+                <xyz>1 0 0</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_open_angle_1_joint" type="revolute">
+          <pose>0 0 0 0 0 0</pose> <!--need to find values from SW wrt to child link-->
+          <parent>tool_wrist_sca_shaft_link</parent>
+          <child>tool_wrist_sca_ee_link_1</child>
+          <axis>
+                <limit>
+                        <lower>0</lower>
+                        <upper>3.1416</upper>
+                        <effort>1000</effort>
+                        <velocity>0.3</velocity>
+                </limit>
+                <xyz>0 1 0</xyz>
+          </axis>
+        </joint>
+
+        <joint name="outer_open_angle_2_joint" type="revolute">
+          <pose>0 0 0 0 0 0</pose> <!--need to find values from SW wrt to child link-->
+          <parent>tool_wrist_sca_shaft_link</parent>
+          <child>tool_wrist_sca_ee_link_2</child>
+          <axis>
+                <limit>
+                        <lower>1.5708</lower>
+                        <upper>0</upper>
+                        <effort>1000</effort>
+                        <velocity>0.3</velocity>
+                </limit>
+                <xyz>0 1 0</xyz>
+          </axis>
+        </joint>
+
+
+</model>
+</sdf>
